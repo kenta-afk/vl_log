@@ -12,7 +12,8 @@ class RecordController extends Controller
      */
     public function index()
     {
-        //
+        $records = Record::with('user')->latest()->get();
+        return view('records.index', compact('records'));
     }
 
     /**
@@ -20,7 +21,7 @@ class RecordController extends Controller
      */
     public function create()
     {
-        //
+        return view('records.create');
     }
 
     /**
@@ -28,7 +29,14 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'opponent' => 'required|max:255',
+            'record' => 'required|max:255',
+        ]);
+
+        $request->user()->records()->create($request->only('opponent', 'record'));
+
+        return redirect()->route('records.index');
     }
 
     /**
@@ -36,7 +44,7 @@ class RecordController extends Controller
      */
     public function show(Record $record)
     {
-        //
+        return view('records.show', compact('record'));
     }
 
     /**
