@@ -12,7 +12,7 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
           @foreach ($records as $record)
           <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
-            <p class="text-gray-800 dark:text-gray-300">{{ $record->opponent }}</p>
+            <p class="text-gray-800 dark:text-gray-300">vs {{ $record->opponent }}</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $record->user->name }}</p>
             <a href="{{ route('records.show', $record) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
           </div>
