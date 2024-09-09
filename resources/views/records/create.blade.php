@@ -13,9 +13,9 @@
           <form method="POST" action="{{ route('records.store') }}">
             @csrf
             <div class="mb-4">
-              <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Opponent</label>
+              <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">対戦相手</label>
               <input type="text" name="opponent" id="opponent" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-              <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Records</label>
+              <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">振り返り</label>
               <input type="text" name="record" id="record" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
               @error('record')
               <span class="text-red-500 text-xs italic">{{ $message }}</span>

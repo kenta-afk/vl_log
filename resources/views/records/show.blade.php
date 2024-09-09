@@ -12,9 +12,9 @@
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900 dark:text-gray-100">
           <a href="{{ route('records.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
-          <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Opponent</label>
+          <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">（対戦相手）</label>
           <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $record->opponent }}</p>
-          <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Record</label>
+          <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">（振り返り）</label>
           <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $record->record }}</p>
           <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $record->user->name }}</p>
           <div class="text-gray-600 dark:text-gray-400 text-sm">
