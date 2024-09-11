@@ -52,7 +52,7 @@ class RecordController extends Controller
      */
     public function edit(Record $record)
     {
-        //
+        return view('records.edit', compact('record'));
     }
 
     /**
@@ -60,7 +60,13 @@ class RecordController extends Controller
      */
     public function update(Request $request, Record $record)
     {
-        //
+        $request->validate([
+            'record' => 'required|max:255',
+        ]);
+
+        $record->update($request->only('record'));
+
+        return redirect()->route('records.show', $record);
     }
 
     /**
