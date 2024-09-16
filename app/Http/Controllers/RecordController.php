@@ -41,7 +41,7 @@ class RecordController extends Controller
 
     public function Commentstore(Request $request, Record $record)
     {
-            // バリデーション
+            
         $validated = $request->validate([
             'comment' => 'required|max:255',
         ]);
