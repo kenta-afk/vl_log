@@ -31,7 +31,19 @@
             </form>
           </div>
           @endif
-        </div>
+
+          <form method="POST" action="{{ route('records.comment', $record->id) }}">
+            @csrf
+              <label for="comment" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">コメント</label>
+              <input type="text" name="comment" id="comment" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">記録する</button>
+          </form>
+          @foreach($record->users as $user)
+            <p class="text-gray-800 dark:text-gray-300">{{ $user->name }}</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $user->pivot->comment }}</p>
+          @endforeach
+          </div>
       </div>
     </div>
   </div>

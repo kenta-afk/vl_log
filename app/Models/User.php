@@ -15,6 +15,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Record::class);
     }
+
+    public function sharedRecords()
+    {
+        return $this->belongsToMany(Record::class, 'record_user')->withPivot('comment');
+    }
     /**
      * The attributes that are mass assignable.
      *

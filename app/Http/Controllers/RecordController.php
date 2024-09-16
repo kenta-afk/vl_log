@@ -39,12 +39,31 @@ class RecordController extends Controller
         return redirect()->route('records.index');
     }
 
+    public function Commentstore(Request $request, Record $record)
+    {
+            // バリデーション
+        $validated = $request->validate([
+            'comment' => 'required|max:255',
+        ]);
+
+        // コメントを保存
+        $record->users()->attach(auth()->id(), [
+            'comment' => $validated['comment'],
+        ]);
+
+        
+        return back();
+    }
+
     /**
      * Display the specified resource.
      */
     public function show(Record $record)
     {
-        return view('records.show', compact('record'));
+        //Recordに関連するUserと、その中間テーブルのcommentの取得
+        $usersWithComments = $record->users()->get();
+
+        return view('records.show', compact('record', 'usersWithComments'));
     }
 
     /**

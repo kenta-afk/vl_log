@@ -18,6 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('records', RecordController::class);
+    Route::post('records/{record}/comment', [RecordController::class, 'Commentstore'])->name('records.comment');
 });
 
 require __DIR__.'/auth.php';
