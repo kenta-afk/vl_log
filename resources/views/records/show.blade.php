@@ -12,9 +12,7 @@
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900 dark:text-gray-100">
           <a href="{{ route('records.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
-          <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">（対戦相手）</label>
-          <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $record->opponent }}</p>
-          <label for="record" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">（振り返り）</label>
+          <p class="text-gray-800 dark:text-gray-300 text-lg">vs {{ $record->opponent }}</p>
           <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $record->record }}</p>
           <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $record->user->name }}</p>
           <div class="text-gray-600 dark:text-gray-400 text-sm">
@@ -37,11 +35,13 @@
               <label for="comment" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">コメント</label>
               <input type="text" name="comment" id="comment" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
 
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">記録する</button>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">コメントする</button>
           </form>
           @foreach($record->users as $user)
-            <p class="text-gray-800 dark:text-gray-300">{{ $user->name }}</p>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $user->pivot->comment }}</p>
+            <div class="mt-4"> <!-- コメント間に間隔を追加 -->
+              <p class="text-gray-800 dark:text-gray-300">@ {{ $user->name }}</p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $user->pivot->comment }}</p>
+            </div>
           @endforeach
           </div>
       </div>
