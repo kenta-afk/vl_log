@@ -29,15 +29,42 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'opponent' => 'required|max:255',
-            'record' => 'required|max:255',
-        ]);
+    
+    // バリデーション
+    $request->validate([
+        'opponent' => 'required|max:255',
+        'record' => 'required|max:255',
+        'video' => 'nullable|mimetypes:video/mp4,video/avi,video/mpeg|max:204800', // 動画は任意で最大200MB
+    ]);
 
-        $request->user()->records()->create($request->only('opponent', 'record'));
+    // 動画ファイルのアップロード処理
+    $videoPath = null;
+    if ($request->hasFile('video')) {
+        $video = $request->file('video');
 
-        return redirect()->route('records.index');
+        // 動画の長さが1時間以内かを確認する（FFmpegなどの外部ライブラリが必要）
+        $duration = shell_exec("ffmpeg -i " . $video->getPathname() . " 2>&1 | grep 'Duration' | awk '{print $2}' | tr -d ,");
+        $durationInSeconds = strtotime($duration) - strtotime('TODAY');
+        
+        if ($durationInSeconds > 3600) {
+            return back()->withErrors(['video' => '動画の長さは1時間以内にしてください。']);
+        }
+
+        // ファイル名を生成して保存
+        $videoName = time() . '_' . $video->getClientOriginalName();
+        $videoPath = $video->storeAs('uploads', $videoName, 'public');
     }
+
+    // レコードを作成
+    $record = $request->user()->records()->create([
+        'opponent' => $request->input('opponent'),
+        'record' => $request->input('record'),
+        'video' => $videoPath, // 動画パスを保存
+    ]);
+
+    return redirect()->route('records.index')->with('success', '振り返りが保存されました！');
+    }
+
 
     public function Commentstore(Request $request, Record $record)
     {
