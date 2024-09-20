@@ -12,6 +12,7 @@ class Record extends Model
     protected $fillable = [
         'record',
         'opponent',
+        'video',
     ];
 
     public function user()

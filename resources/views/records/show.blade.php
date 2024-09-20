@@ -37,6 +37,14 @@
 
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">コメントする</button>
           </form>
+          @if ($record->video)
+            <div class="record-video">
+              <video controls class="max-w-lg mx-auto">
+                <source src="{{ asset('storage/' . $record->video) }}" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+              </video>
+            </div>
+          @endif
           @foreach($record->users as $user)
             <div class="mt-4"> <!-- コメント間に間隔を追加 -->
               <p class="text-gray-800 dark:text-gray-300">@ {{ $user->name }}</p>
