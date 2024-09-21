@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('records.create')" :active="request()->routeIs('records.create')">
                         {{ __('試合記録作成') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('records.search')" :active="request()->routeIs('records.search')">
+                        {{ __('記録検索') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -81,6 +84,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('records.create')" :active="request()->routeIs('records.create')">
                 {{ __('試合記録作成') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('records.search')" :active="request()->routeIs('records.search')">
+                {{ __('記録検索') }}
             </x-responsive-nav-link>
         </div>
 
