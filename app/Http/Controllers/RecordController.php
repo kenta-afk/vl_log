@@ -124,4 +124,23 @@ class RecordController extends Controller
         return redirect()->route('records.index');
         
     }
+
+    public function search(Request $request)
+    {
+        $query = Record::query();
+
+        if ($request->filled('keyword')) {
+            $keyword = $request->keyword;
+            $query->where('record', 'like', '%' . $keyword . '%');
+        }
+
+        $records = $query
+            ->latest()
+            ->paginate(10);
+
+        
+        return view('records.search', compact('records'));
+    }
+
+    
 }
