@@ -131,7 +131,7 @@ class RecordController extends Controller
 
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
-            $query->where('record', 'like', '%' . $keyword . '%');
+            $query->where('opponent', 'like', '%' . $keyword . '%');
         }
 
         $records = $query
