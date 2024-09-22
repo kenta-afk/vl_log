@@ -1,9 +1,8 @@
-VALORANT scrims log app
+VALORANT log app
 
 Usage
 
-1.
+if you play VALORANT to find improvement, this app saves you to improve your playing.
 
-2.
+When you find your improvements, you write improvements in this app so that you don't forget your weak point.
 
-3.
