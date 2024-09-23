@@ -1,0 +1,90 @@
+/* Google FontsからRobotoフォントを読み込む */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    background-color: #0F1923;
+    /* Valorantのダーク背景色 */
+    color: #FFFFFF;
+    /* テキストの白色 */
+    font-family: 'Roboto', sans-serif;
+    /* モダンなフォントを使用 */
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #FF4655;
+    /* Valorantの赤色 */
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+a {
+    color: #00E5FF;
+    /* Valorantのシアン色 */
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #00FFFF;
+    /* ホバー時に若干明るく */
+    border-bottom: 2px solid #00E5FF;
+}
+
+button {
+    background: linear-gradient(145deg, #FF4655, #FF6876);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #FF6876, #FF4655);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 20px;
+    }
+}
