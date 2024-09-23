@@ -6,3 +6,4 @@ if you play VALORANT to find improvement, this app saves you to improve your pla
 
 When you find your improvements, you write improvements in this app so that you don't forget your weak point.
 
+
