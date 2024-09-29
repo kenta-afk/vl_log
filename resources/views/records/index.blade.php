@@ -1,3 +1,5 @@
+<!--一覧画面-->
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-2xl text-red-600 leading-tight">
