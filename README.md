@@ -1,9 +1,34 @@
-VALORANT log app
+# データエンジニアカタパルト Phase01 課題
 
-Usage
+## 挑戦した課題
 
-if you play VALORANT to find improvement, this app saves you to improve your playing.
+[] 初級
 
-When you find your improvements, you write improvements in this app so that you don't forget your weak point.
+[✅] 上級
+
+## 実装した内容
+VALORANTというeスポーツタイトルのゲームで練習した試合の反省や課題を忘れないように記録できるアプリを作りました。
+
+## デプロイ先の URL または画面収録したファイル名
 
 
+## 使い方
+
+1. アカウント作成
+
+2. 試合ごとの反省や課題を記録
+
+3. プレイヤーと共有
+
+...
+
+## 工夫した点
+動画データも投稿できるようにしました。
+dashboardでこれからのVCTの試合の一覧をAPIで取得して表示できるようにしました。
+ページデザインもtailwindを使ってVALORANT風にしました。
+
+## 苦戦した点
+動画データを保存する際に、やり方が分からなかったのでそこで苦戦しました。
+
+## Phase01 終えての感想
+Laravelのアプリの基本的な仕組みが理解できたので、とても良かったと思いました。
