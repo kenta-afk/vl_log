@@ -18,6 +18,8 @@ class MatchController extends Controller
         // APIから返された試合結果
         $matches = $response->json();
 
+        
+
         // ビューに試合結果を渡す
         return view('dashboard', ['matches' => $matches]);
     }
