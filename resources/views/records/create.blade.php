@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="video" class="block text-gray-400 text-sm font-bold mb-2">動画をアップロード (最長1時間)</label>
+                            <label for="video" class="block text-gray-400 text-sm font-bold mb-2">動画をアップロード (200MBまで)</label>
                             <input type="file" name="video" id="video" accept="video/*" class="bg-gray-700 border border-gray-600 rounded w-full py-2 px-3 text-gray-300 focus:outline-none focus:border-red-600">
                         </div>
 
